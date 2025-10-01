@@ -2,7 +2,7 @@
 
 # Default: use current directory
 PCAP_DIR="."
-OUTPUT="all_rtt_features.csv"
+OUTPUT="standdev_latency_tuple_tshark.csv"
 
 # Write CSV header
 echo "file,src,srcport,dst,dstport,rtt" > "$OUTPUT"
