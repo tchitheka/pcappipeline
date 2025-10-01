@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-# Directory with pcap files
-PCAP_DIR="/path/to/pcaps"
+# Default: use current directory
+PCAP_DIR="."
 OUTPUT="all_rtt_features.csv"
 
 # Write CSV header
 echo "file,src,srcport,dst,dstport,rtt" > "$OUTPUT"
 
-# Loop through all pcap files
+# Loop through all pcap files in current directory
 for pcap in "$PCAP_DIR"/*.pcap; do
     echo "Processing $pcap ..."
     tshark -r "$pcap" \
