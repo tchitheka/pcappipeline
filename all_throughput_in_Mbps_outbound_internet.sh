@@ -11,7 +11,7 @@ process_pcap() {
     local pcap="$1"
     tshark -r "$pcap" \
         -q -z io,stat,0.1,"SUM(frame.len)frame.len,ip.src==10.30.0.0/16 && !(ip.dst==10.30.0.0/16)" \
-        | awk -v f="$pcap" '/^[[:space:]]*[0-9]+\.[0-9]+/ {split($1,a,"-"); print f "," a[1] "," $2*8/1e6}'
+        | awk -v f="$pcap" '/^[0-9]/ {split($1,a,"-"); print f "," a[1] "," $2*8/1e6}'
 }
 
 export -f process_pcap
