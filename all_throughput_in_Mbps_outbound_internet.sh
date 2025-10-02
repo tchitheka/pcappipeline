@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-OUTPUT="throughput_filtered_parallel.csv"
+OUTPUT="all_throughput_in_mbps_outbound_internet.csv"
 
 # Write header
 echo "file,timestamp,rate_Mbps" > "$OUTPUT"
@@ -38,3 +38,4 @@ cat *_rate.csv | sort -t, -k1,1 -k2,2n >> "$OUTPUT"
 rm *_rate.csv
 
 echo "✅ Done! Results saved in $OUTPUT (sorted by file and timestamp)"
+
